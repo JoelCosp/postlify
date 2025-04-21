@@ -1,1 +1,5 @@
-<p>home works!</p>
+<section>
+    <div class="flex flex-col h-screen justify-center items-center">
+        <app-home-button *ngFor="let btn of btns" [routerLink]="btn.route" routerLinkActive="router-link-active"  [text]="btn.text"></app-home-button>
+    </div>
+</section>
