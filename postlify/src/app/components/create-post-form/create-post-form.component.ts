@@ -12,17 +12,20 @@ export class CreatePostFormComponent {
   title: FormControl; // El FormControl representa los inputs
   description: FormControl;
   img: FormControl;
+  hashtags: FormControl;
 
   constructor()
   {
     this.title = new FormControl('', Validators.required);
     this.description = new FormControl('', [Validators.required, Validators.maxLength(500)]);
     this.img = new FormControl('', Validators.required);
+    this.hashtags = new FormControl('', Validators.required);
     
     this.postForm = new FormGroup({
       title: this.title,
       description: this.description,
-      img: this.img
+      img: this.img,
+      hashtags: this.hashtags
     })
   }
 
