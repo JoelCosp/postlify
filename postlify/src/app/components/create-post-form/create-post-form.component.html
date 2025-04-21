@@ -1,1 +1,16 @@
-<p>create-post-form works!</p>
+<div class="max-w-[500px] mx-auto">
+    <h2 class="text-5xl font-bold text-[#c5c5c5] py-5">CREATE A POST</h2>
+    <form class="p-5 rounded-md border-2 border-[#c5c5c5] text-[#c5c5c5]" [formGroup]="postForm" (submit)="handleSubmit()">
+        <fieldset>
+            <input class="bg-[#c5c5c5] w-full p-4 rounded-md text-white font-semibold outline-none mb-5" type="text" id="post-title" formControlName="title" placeholder="Introduce a title...">
+        </fieldset>
+        <fieldset>
+            <input class="bg-[#c5c5c5] w-full p-4 rounded-md text-white font-semibold outline-none mb-5" type="text" id="post-description" formControlName="description" placeholder="Introduce a description...">
+        </fieldset>
+        <fieldset>
+            <input class="bg-[#c5c5c5] w-full p-4 rounded-md text-white font-semibold outline-none mb-5" type="text" id="post-img" formControlName="img" placeholder="Introduce an image url...">
+        </fieldset>
+        <button class="border-2 border-[#c5c5c5] px-7 py-4 rounded-md text-white font-semibold hover:cursor-pointer hover:bg-[#c5c5c5] w-full" [disabled]="postForm.invalid">CREATE POST</button>
+    </form>
+</div>
+
