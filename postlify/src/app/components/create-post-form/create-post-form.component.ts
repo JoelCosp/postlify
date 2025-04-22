@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { PostServiceService } from '../../services/post-service.service';
+import { Post } from '../../models/Post';
 @Component({
   selector: 'app-create-post-form',
   imports: [ReactiveFormsModule],
@@ -14,7 +16,7 @@ export class CreatePostFormComponent {
   img: FormControl;
   hashtags: FormControl;
 
-  constructor()
+  constructor(private postService: PostServiceService)
   {
     this.title = new FormControl('', Validators.required);
     this.description = new FormControl('', [Validators.required, Validators.maxLength(500)]);
@@ -30,7 +32,9 @@ export class CreatePostFormComponent {
   }
 
   handleSubmit(): void {
-    console.log(this.postForm.value);
-    this.postForm.reset();
+    this.postService.createPost(this.postForm.value).subscribe(data => {
+      alert("¡Post created succesfully!");
+      this.postForm.reset();
+    })
   }
 }
